@@ -12,10 +12,14 @@ const useStyle = makeStyles((theme) => ({
     },
 
     editableTitle: {
-        flexGrow: 1
+        flexGrow: 1,
+        fontSize: '1.2rem',
+        fontWeight: 'bold'
     },
      
     input: {
+        fontSize: '1.2rem',
+        fontWeight: 'bold',
         margin: theme.spacing(1),
         "&:focus": {
             background: '#ddd',
@@ -32,6 +36,7 @@ function Title() {
                 <div>
                 <InputBase
                     value="EditTodo"
+                    autoFocus
                     inputProps={{
                         className: classes.input,
                     }}

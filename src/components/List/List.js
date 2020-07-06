@@ -1,5 +1,7 @@
 import React from 'react'
 import Title from './Title'
+import Card from '../Card/Card'
+
 import { Paper, Typography, CssBaseline } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -11,7 +13,8 @@ const useStyle = makeStyles((theme) => ({
         marginLeft: theme.spacing(1)
     },
 
-}))
+}));
+
 function List() { 
     const classes = useStyle();
     return (
@@ -19,6 +22,12 @@ function List() {
           <Paper className={classes.root}>
             <CssBaseline />
             <Title />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
           </Paper>
         </div>
     )
