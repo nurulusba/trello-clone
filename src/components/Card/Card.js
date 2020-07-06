@@ -6,7 +6,7 @@ const useStyle = makeStyles((theme) => ({
    
     card: {
         padding: theme.spacing(1, 1, 1, 2),
-        margin: theme.spacing(1),
+        margin: theme.spacing(1),  
     },
 
 }));
@@ -16,7 +16,7 @@ function Card() {
     return (
         <div>
             <Paper className={classes.card}>
-                do homework
+                Card Component
             </Paper>
         </div>
     )

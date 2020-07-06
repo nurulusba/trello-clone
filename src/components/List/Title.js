@@ -35,7 +35,7 @@ function Title() {
                open ? (
                 <div>
                 <InputBase
-                    value="EditTodo"
+                    value="EditList"
                     autoFocus
                     inputProps={{
                         className: classes.input,
@@ -50,7 +50,7 @@ function Title() {
                    className={classes.editableTitle}
                    onClick={() => setOpen(!open)}
                 > 
-                 Todo 
+                 List 
                 </Typography>
                 <MoreHorizIcon />
                 </div>

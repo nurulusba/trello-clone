@@ -1,6 +1,7 @@
 import React from 'react'
 import Title from './Title'
 import Card from '../Card/Card'
+import InputContainer from '../Input/InputContainer'
 
 import { Paper, Typography, CssBaseline } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -26,8 +27,7 @@ function List() {
             <Card />
             <Card />
             <Card />
-            <Card />
-            <Card />
+            <InputContainer />
           </Paper>
         </div>
     )
