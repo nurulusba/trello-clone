@@ -1,4 +1,5 @@
 import React from 'react'
+import Title from './Title'
 import { Paper, Typography, CssBaseline } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -17,7 +18,7 @@ function List() {
         <div>
           <Paper className={classes.root}>
             <CssBaseline />
-            <Typography>Title</Typography>
+            <Title />
           </Paper>
         </div>
     )
