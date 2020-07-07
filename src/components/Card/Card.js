@@ -11,12 +11,12 @@ const useStyle = makeStyles((theme) => ({
 
 }));
 
-function Card() {
+function Card( {card} ) {
     const classes = useStyle();
     return (
         <div>
             <Paper className={classes.card}>
-                Card Component
+                {card.title}
             </Paper>
         </div>
     )

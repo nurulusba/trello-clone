@@ -20,7 +20,7 @@ const cards = [
     lists: {
       'list-1': {
         id: 'list-1',
-        title: 'Todo',
+        title: 'Todoooo',
         cards,
       },
       },
