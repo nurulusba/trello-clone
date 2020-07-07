@@ -43,13 +43,13 @@ function InputCard( {setOpen} ) {
             <Paper className={classes.card}>
                 <InputBase 
                      multiline
-                     onBlur={() => setOpen(false)}
                      fullWidth
                      inputProps= {{
                         className: classes.input
                      }} 
                      placeholder="Enter a title of this card .."
-                />
+                     onBlur={() => setOpen(false)}     
+                    />
             </Paper>
             </div>
 
