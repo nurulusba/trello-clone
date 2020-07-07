@@ -44,7 +44,6 @@ function InputCard( {setOpen} ) {
                 <InputBase 
                      multiline
                      onBlur={() => setOpen(false)}
-
                      fullWidth
                      inputProps= {{
                         className: classes.input
