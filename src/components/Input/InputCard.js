@@ -12,18 +12,22 @@ const useStyle = makeStyles((theme) => ({
        minWidth: '280px',
 
        margin: theme.spacing(0, 1, 1, 1),
-       paddingBottom: theme.spacing(4)
+       paddingBottom: theme.spacing(4),
+       background: '#faf0af',
    },
    
    input: {
-       margin: theme.spacing(2)
+    background: '#faf0af',
+    margin: theme.spacing(2),
+    fontFamily: 'Merienda One',
    },
 
    btnConfirm: {
-       background: '#3cca74',
+
+      background: '#f7797d',
        color: '#fff',
        "&:hover": {
-           background: fade('#3cca74', 0.75)
+           background: fade('#f7797d', 0.75)
        }
    },
 

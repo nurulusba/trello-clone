@@ -8,6 +8,9 @@ const useStyle = makeStyles((theme) => ({
     card: {
         padding: theme.spacing(1, 1, 1, 2),
         margin: theme.spacing(1),  
+        fontFamily: 'Merienda One',
+        fontSize: '15px',
+        background: '#faf0af',
     },
 
 }));

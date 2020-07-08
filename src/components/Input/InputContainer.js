@@ -9,16 +9,23 @@ const useStyle = makeStyles((theme) => ({
     root: {
        width: '300px',
        marginTop: theme.spacing(1),
+
     },
 
     addCard: {
        padding: theme.spacing(1, 1, 1, 2 ),
        margin: theme.spacing(0, 1, 1, 1),
-       background: '#EBECF0',
+       background: '#f7c5a8',
+      
        "&:hover": {
            backgroundColor: fade('#000', 0.25)
        }
     },
+
+     typo: {
+      fontFamily: 'Permanent Marker',
+      fontSize: '20px'
+     }
 
 }));
 
@@ -34,7 +41,7 @@ function InputContainer( {listId, type} ) {
             
              <Collapse in={!open}>
                <Paper className={classes.addCard} elevation={0} onClick={() => setOpen(!open)} >
-                 <Typography  > 
+                 <Typography className={classes.typo} > 
                 { type === 'card' ? ' + Add a Card' : '+ Add another List' }   
                  </Typography> 
                </Paper>

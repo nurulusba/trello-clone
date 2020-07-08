@@ -15,16 +15,22 @@ const useStyle = makeStyles((theme) => ({
 
     editableTitle: {
         flexGrow: 1,
-        fontSize: '1.2rem',
-        fontWeight: 'bold'
+        fontSize: '1.4rem',
+        fontWeight: 'bold',
+        fontFamily: 'Permanent Marker',
+        color: '#204051',
+        padding: theme.spacing(2),
     },
      
     input: {
         fontSize: '1.2rem',
+        color: '#204051',
+        fontFamily: 'Permanent Marker',
         fontWeight: 'bold',
+        padding: theme.spacing(2),
         margin: theme.spacing(1),
         "&:focus": {
-            background: '#ddd',
+            background: '#faf0af',
         }
     }
 }));

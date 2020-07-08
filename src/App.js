@@ -13,7 +13,7 @@ const useStyle = makeStyles((theme) => ({
   root: {
      display: 'flex',
      minHeight: '100vh',
-     background: 'linear-gradient(to right, #3c3b3f, #605c3c)',
+     background: 'linear-gradient(to right, #c6ffdd, #fbd786, #f7797d)',
      overflowY: 'auto'
 
   }, 

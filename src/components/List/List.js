@@ -11,7 +11,7 @@ const useStyle = makeStyles((theme) => ({
    
     root: {
         minWidth: '300px',
-        backgroundColor: '#EBECF0',
+        backgroundColor: '#e5edb7',
         marginLeft: theme.spacing(1)
     },
 
