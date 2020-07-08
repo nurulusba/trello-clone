@@ -6,7 +6,7 @@ import StoreApi from './utils/StoreApi'
 import InputContainer from './components/Input/InputContainer'
 
 import { makeStyles } from '@material-ui/core/styles'
-import { DragDropContext } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 const useStyle = makeStyles((theme) => ({
     
@@ -76,44 +76,69 @@ function App() {
       setData(newState);
     };
 
-    const onDragEnd = result => {
-       const {destination, source, draggableId} = result;
-       console.log("destination", destination, "source", source, "draggableId", draggableId);
-        
-       if (!destination) {
-         return;
-       }
+    const onDragEnd = (result) => {
+      const { destination, source, draggableId, type } = result;
+      console.log('destination', destination, 'source', source, draggableId);
+  
+      if (!destination) {
+        return;
+      }
 
-       const sourceList = data.lists[source.droppableId];
-       const destinationList = data.lists[destination.droppableId];
-       const dragginCard = sourceList.card.filter((card) => card.id === draggableId)[0];
-
-       if(source.droppableId === destination.droppableId) {
-            sourceList.cards.splice(source.index, 1);
-            destination.cards.splice(destination.index, 0, dragginCard)
-            
-            const newState = {
-              ...data,
-              lists: {
-                ...data.lists,
-                [sourceList.id]: destinationList,
-              },
-            };
-
-            setData(newState);
-        }
-      };
-
+      if (type === 'list') {
+        const newListIds = data.listIds;
+        newListIds.splice(source.index, 1);
+        newListIds.splice(destination.index, 0, draggableId);
+        return;
+      }
+  
+      const sourceList = data.lists[source.droppableId];
+      const destinationList = data.lists[destination.droppableId];
+      const draggingCard = sourceList.cards.filter(
+        (card) => card.id === draggableId
+      )[0];
+  
+      if (source.droppableId === destination.droppableId) {
+        sourceList.cards.splice(source.index, 1);
+        destinationList.cards.splice(destination.index, 0, draggingCard);
+        const newSate = {
+          ...data,
+          lists: {
+            ...data.lists,
+            [sourceList.id]: destinationList,
+          },
+        };
+        setData(newSate);
+      } else {
+        sourceList.cards.splice(source.index, 1);
+        destinationList.cards.splice(destination.index, 0, draggingCard);
+  
+        const newState = {
+          ...data,
+          lists: {
+            ...data.lists,
+            [sourceList.id]: sourceList,
+            [destinationList.id]: destinationList,
+          },
+        };
+        setData(newState);
+      }
+    };
+  
   return ( 
     <StoreApi.Provider value={{ addMoreCard, addMoreList, updateListTitle }}>
     <DragDropContext onDragEnd={onDragEnd}>
-    <div className={classes.root}>
-      { data.listIds.map((listId) => {
+      <Droppable droppableId= "app" type="list" direction="horizontal">
+        {(provided) => (
+       <div className={classes.root} ref={provided.innerRef} {...provided.droppableProps} >
+      { data.listIds.map((listId, index) => {
         const list = data.lists[listId];
-        return <List list={list} key={listId} />
+        return <List list={list} key={listId} index={index} />
       })}
     <InputContainer type="list" />
+     {provided.placeholder}
     </div>
+        )}
+      </Droppable>
     </DragDropContext>
     </StoreApi.Provider>
   );
