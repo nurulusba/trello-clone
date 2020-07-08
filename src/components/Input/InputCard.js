@@ -9,7 +9,8 @@ import ClearIcon from '@material-ui/icons/Clear'
 const useStyle = makeStyles((theme) => ({
     
    card: {
-       
+       minWidth: '280px',
+
        margin: theme.spacing(0, 1, 1, 1),
        paddingBottom: theme.spacing(4)
    },

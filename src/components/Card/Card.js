@@ -1,6 +1,7 @@
 import React from 'react'
 import { Paper, Typography, CssBaseline } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { Draggable } from 'react-beautiful-dnd';
 
 const useStyle = makeStyles((theme) => ({
    
@@ -11,15 +12,24 @@ const useStyle = makeStyles((theme) => ({
 
 }));
 
-function Card( {card} ) {
+function Card( {card, index} ) {
     const classes = useStyle();
     return (
-        <div>
+        <Draggable draggableId={card.id} index={index} >
+            {(provided) => (
+        <div ref={provided.innerRef} 
+            {...provided.dragHandleProps} 
+            {...provided.draggableProps}
+        >
             <Paper className={classes.card}>
                 {card.title}
             </Paper>
         </div>
-    )
+            )}
+
+        </Draggable>
+        
+    );
 }
 
 export default Card
