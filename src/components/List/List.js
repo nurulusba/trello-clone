@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyle = makeStyles((theme) => ({
    
     root: {
-        width: '300px',
+        minWidth: '300px',
         backgroundColor: '#EBECF0',
         marginLeft: theme.spacing(1)
     },
@@ -22,7 +22,7 @@ function List( {list} ) {
         <div>
           <Paper className={classes.root}>
             <CssBaseline />
-            <Title title={list.title} />
+            <Title title={list.title} listId={list.id} />
            {list.cards.map((card) => 
            <Card card={card} key={card.id}  />
            )}

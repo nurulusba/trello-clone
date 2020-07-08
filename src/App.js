@@ -12,8 +12,8 @@ const useStyle = makeStyles((theme) => ({
   root: {
      display: 'flex',
      minHeight: '100vh',
-     background: 'linear-gradient(to right, #3c3b3f, #605c3c)'
-     
+     background: 'linear-gradient(to right, #3c3b3f, #605c3c)',
+
   },
 
 }));
@@ -60,8 +60,21 @@ function App() {
          setData(newState);
      };
   
+     const updateListTitle = (title, listId) => {
+      const list = data.lists[listId];
+      list.title = title;
+  
+      const newState = {
+        ...data,
+        lists: {
+          ...data.lists,
+          [listId]: list,
+        },
+      };
+      setData(newState);
+    };
   return ( 
-    <StoreApi.Provider value={{ addMoreCard, addMoreList }}>
+    <StoreApi.Provider value={{ addMoreCard, addMoreList, updateListTitle }}>
     <div className={classes.root}>
       { data.listIds.map((listId) => {
         const list = data.lists[listId];
